@@ -1,0 +1,39 @@
+<div class="time-line" *ngIf="receiveSelectedId?.length">
+  <div class="time-line-header"><span>Timeline</span></div>
+
+  <div
+    class="time-line-content"
+    [ngClass]="i % 2 !== 0 ? 'odd' : 'even'"
+    *ngFor="let data of receiveSelectedId; let i = index"
+  >
+    <div class="blank-section" id="blank"></div>
+
+    <div class="line-section" id="line">
+      <div class="line-section-circle">
+        <i class="fa-regular fa-circle"></i>
+      </div>
+      <div class="line-section-line"></div>
+    </div>
+
+    <div class="content-section" id="content">
+      <div class="content-section-card" [attr.data-aos]="i % 2 !== 0 ? 'fade-right' : 'fade-left'">
+        <div class="content-section-card-head">
+          <p>{{data.callDate| date: 'dd/MM/yyyy 0h:0m'}}</p>
+          <span> - {{data.customerID_1}}</span>
+        </div>
+        <div class="content-section-card-details">
+          <span>Call Summary</span>
+          <p>{{data.summary}}</p>
+
+          <span>Next Steps</span>
+          <p>{{data.nextSteps}}</p>
+
+          <span>Call Transcript</span>
+          <p>{{data.transcript}}</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>

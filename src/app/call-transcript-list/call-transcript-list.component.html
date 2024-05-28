@@ -1,0 +1,32 @@
+<div class="call-transcript">
+  <div class="call-transcript-header"><span>Call Transcript List</span></div>
+
+  <div class="container py-4">
+    <div class="table-data">
+      <ag-grid-angular
+        style="width: 100%; height: 100%"
+        (rowSelected)="getTimeLineData($event)"
+        class="ag-theme-quartz"
+        [pagination]="true"
+        [paginationPageSize]="10"
+        [columnDefs]="columnDefs"
+        [rowData]="transcriptData"
+        [rowSelection]="'multiple'"
+        [suppressRowClickSelection]="true"
+        [overlayNoRowsTemplate]="overlayNoRowsTemplate"
+        (filterChanged)="onFilterChanged($event)"
+      ></ag-grid-angular>
+    </div>
+
+    <div class="py-4">
+      <app-time-line [receiveSelectedId]="selectedData"></app-time-line>
+    </div>
+  </div>
+
+  <div class="call-transcript-footer">
+    <span
+      >Copyright &copy; 2024 Customer Call Transcript&reg;. All rights
+      reserved.</span
+    >
+  </div>
+</div>

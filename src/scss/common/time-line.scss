@@ -1,0 +1,112 @@
+@import "../color/variable.scss";
+
+.time-line {
+  &-header {
+    color: $gray;
+    font-weight: 600;
+    font-size: 20px;
+  }
+
+  &-content {
+    display: flex;
+    justify-content: space-between;
+    @media screen and (max-width: 767px) {
+      flex: auto;
+    }
+    .blank-section {
+      width: 48%;
+      @media screen and (max-width: 767px) {
+        display: none;
+      }
+    }
+    .line-section {
+      display: flex;
+      justify-content: center;
+      width: 4%;
+      @media screen and (max-width: 767px) {
+        display: none;
+      }
+      &-circle {
+        margin: -5px -9.5px 0 0;
+        z-index: 1;
+        i {
+          background-color: $white;
+          color: $blue;
+          font-weight: 500;
+        }
+      }
+      &-line {
+        border: 2px solid $off-white;
+      }
+    }
+    .content-section {
+      width: 48%;
+      @media screen and (max-width: 767px) {
+        width: 100%;
+        padding-top: 15px;
+      }
+      &-card {
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+          rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+        &-head {
+          display: flex;
+          align-items: center;
+          background-color: $blue;
+          padding: 10px;
+          p {
+            margin: 0;
+            background-color: $white;
+            color: $blue;
+            border-radius: 5px;
+            padding: 1px 5px;
+            font-size: 13px;
+            font-weight: 700;
+          }
+          span {
+            padding-left: 5px;
+            color: $white;
+            font-weight: 500;
+          }
+        }
+        &-details {
+          padding: 15px 15px 5px 15px;
+          span {
+            color: $off-gray;
+            font-weight: 700;
+            font-size: 15px;
+          }
+          p {
+            color: $off-gray;
+            font-weight: 500;
+            font-size: 15px;
+          }
+        }
+      }
+    }
+  }
+
+  .even {
+    #blank {
+      order: 1;
+    }
+    #line {
+      order: 2;
+    }
+    #content {
+      order: 3;
+    }
+  }
+  .odd {
+    #blank {
+      order: 3;
+    }
+    #line {
+      order: 2;
+    }
+    #content {
+      order: 1;
+    }
+  }
+}
